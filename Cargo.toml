@@ -1,0 +1,15 @@
+[package]
+name = "advent-of-code-2021"
+version = "0.1.0"
+authors = ["raymond <rfdolan@wpi.edu>"]
+edition = "2018"
+
+[lib]
+name = "inp"
+path = "src/inp.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+regex = "1"
+petgraph = "0.5.1"
