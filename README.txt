@@ -1,4 +1,4 @@
-ADVENT OF CODE 2020 SOLUTIONS
+ADVENT OF CODE 2021 SOLUTIONS
 By: Raymond Dolan
 
 These are my solutions to this year's advent of code, written in rust!
