@@ -9,33 +9,29 @@ fn main() {
 // Solution for part 1
 fn part1(vec: &Vec<i32>) {
     let mut total = 0;
-    let mut iterator = vec.iter();
-    let mut prev = iterator.next().unwrap();
-    for curr in iterator {
-        if curr > prev {
+    let mut prev = i32::MAX;
+    for curr in vec {
+        if curr > &prev {
             total+=1;
         }
-        prev = curr;
+        prev = *curr;
     }
     println!("Part 1: {}", total);
 }
 
 // Solution for part 2
 fn part2(vec: &Vec<i32>) {
+    if vec.len() < 3 {
+        println!("Part 2: Error, not enough input");
+        return;
+    }
     let mut total = 0;
-    let mut iterator = vec.iter();
-    let mut first = iterator.next().unwrap();
-    let mut second = iterator.next().unwrap();
-    let mut third = iterator.next().unwrap();
-    let mut window1 = first + second + third;
-    for fourth in iterator {
-        let window2 = window1 - first + fourth;
+    let mut window1 = vec[0] + vec[1] + vec[2];
+    for i in 3..vec.len() {
+        let window2 = window1 - vec[i-3] + vec[i];
         if  window2 > window1 {
             total+=1;
         }
-        first = second;
-        second = third;
-        third = fourth;
         window1 = window2;
     }
     println!("Part 2: {}", total);

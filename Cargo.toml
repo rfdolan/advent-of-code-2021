@@ -1,7 +1,7 @@
 [package]
 name = "advent-of-code-2021"
 version = "0.1.0"
-authors = ["raymond <rfdolan@wpi.edu>"]
+authors = ["raymond <dolanraymond416@gmail.com>"]
 edition = "2018"
 
 [lib]
