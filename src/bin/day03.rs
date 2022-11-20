@@ -84,9 +84,13 @@ fn part2(vec: &Vec<String>) {
 	while numbers.len() > 1 {
 		curr_bit -= 1;
 		if map.get(&(curr_bit as i32)).unwrap() < &0 {
-			numbers = numbers.iter().filter(|x| x.chars().collect::<Vec<char>>()[bits_in_num - curr_bit-1].to_digit(10).unwrap() == 1).cloned().collect::<Vec<String>>();
+			numbers = numbers.iter().filter(|x| x.chars()
+			    .collect::<Vec<char>>()[bits_in_num - curr_bit-1]
+				.to_digit(10).unwrap() == 1).cloned().collect::<Vec<String>>();
 		} else {
-			numbers = numbers.iter().filter(|x| x.chars().collect::<Vec<char>>()[bits_in_num - curr_bit-1].to_digit(10).unwrap() ==0).cloned().collect::<Vec<String>>();
+			numbers = numbers.iter().filter(|x| x.chars()
+			    .collect::<Vec<char>>()[bits_in_num - curr_bit-1]
+				.to_digit(10).unwrap() ==0).cloned().collect::<Vec<String>>();
 		}
 		map = construct_map(&numbers);
 	}
