@@ -1,7 +1,8 @@
 use std::vec::Vec;
 
 fn main() {
-    let vec = inp::parse_file("day01.txt").iter().map(|x| x.parse().unwrap()).collect::<Vec<i32>>();
+    let vec = inp::parse_file("day01.txt").iter()
+        .map(|x| x.parse().expect(&format!("Error parsing {} as int.",x))).collect::<Vec<i32>>();
     part1(&vec);
     part2(&vec);
 }

@@ -9,7 +9,7 @@ fn main() {
 fn parse_command(line: &String) -> (&str, i32) {
     let split = line.split(" ").collect::<Vec<&str>>();
     let command = split[0];
-    let amount = split[1].parse::<i32>().unwrap();
+    let amount = split[1].parse::<i32>().expect("Couldn't parse command amount.");
     (command, amount)
 }
 
@@ -23,7 +23,7 @@ fn part1(vec: &Vec<String>) {
             "forward" => horizontal_pos += amount,
             "down" => depth += amount,
             "up" => depth -= amount,
-            _ => println!("What the hell?"),
+            _ => println!("Invalid command {}", command),
         }
     }
     //println!("Depth: {}, horizontal: {}",depth, horizontal_pos);
@@ -44,7 +44,7 @@ fn part2(vec: &Vec<String>) {
             },
             "down" => aim += amount,
             "up" => aim -= amount,
-            _ => println!("What the hell?"),
+            _ => println!("Invalid command {}", command),
         }
     }
     //println!("Depth: {}, horizontal: {}",depth, horizontal_pos);
