@@ -1,5 +1,4 @@
 use std::vec::Vec;
-use std::io;
 
 const BOARD_SIZE: u32 = 5;
 
@@ -19,23 +18,22 @@ struct Board {
     has_won: bool
 }
 
-fn print_board(board: &Board) {
+fn _print_board(board: &Board) {
     let mut row = 0;
     for tile in &board.tiles {
         if row >= board.size {
             println!();
             row = 0;
         }
-        print!("{}:{} ", tile.value, if tile.has_been_called {"T"} else {"F"});
+        print!("{}:{} ", tile.value, if tile.has_been_called {"X"} else {"O"});
         row +=1;
     }
     println!("\n");
-
 }
 
-fn print_boards(in_vec: &Vec<Board>) {
+fn _print_boards(in_vec: &Vec<Board>) {
     for board in in_vec {
-        print_board(board);
+        _print_board(board);
     }
 }
 
@@ -125,7 +123,7 @@ fn part1(vec: &Vec<String>) {
             if has_bingo(board) {
                 let total = compute_score(board);
                 println!("Winning board:");
-                print_board(board);
+                _print_board(board);
                 println!("Part 1: {} * {} = {}\n", total, number, total * number);
                 found = true;
             }
@@ -166,6 +164,6 @@ fn part2(vec: &Vec<String>) {
     // Find losing board
     let total = compute_score(&last_to_win);
     println!("Losing board:");
-    print_board(&last_to_win);
+    _print_board(&last_to_win);
     println!("Part 2: {} * {} = {}", total, num, total * num);
 }
