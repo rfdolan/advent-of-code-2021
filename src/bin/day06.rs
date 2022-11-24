@@ -6,8 +6,6 @@ const DAYS_UNTIL_SPAWN: u32 = 7;
 fn main() {
     let line = &inp::parse_file("day06.txt")[0];
     let vec = line.split(",")
-            .collect::<Vec<&str>>()
-            .iter()
             .map(|x| x.parse::<u32>()
                     .expect(&format!("Could not parse {} as u32.", x)))
             .collect::<Vec<u32>>();

@@ -105,7 +105,7 @@ fn compute_score(board: &Board) -> u32 {
 
 // Solution for part 1
 fn part1(vec: &Vec<String>) {
-    let numbers = vec[0].split(",").collect::<Vec<&str>>().iter().map(|x| x.parse()
+    let numbers = vec[0].split(",").map(|x| x.parse()
         .expect(&format!("Error parsing {} as int.",x))).collect::<Vec<u32>>();
     let mut boards = parse_boards(&vec[2..]);
     let mut found = false;
@@ -133,7 +133,7 @@ fn part1(vec: &Vec<String>) {
 
 // Solution for part 2
 fn part2(vec: &Vec<String>) {
-    let numbers = vec[0].split(",").collect::<Vec<&str>>().iter().map(|x| x.parse()
+    let numbers = vec[0].split(",").map(|x| x.parse()
         .expect(&format!("Error parsing {} as int.",x))).collect::<Vec<u32>>();
     let mut boards = parse_boards(&vec[2..]);
     let mut num_winning_boards = 0;
